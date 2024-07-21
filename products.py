@@ -1,4 +1,17 @@
+#讀取檔案
 products = []
+with open('product.csv', 'r', encoding='utf-8') as f:
+	for line in f:
+		if '商品,價格' in line:
+			continue
+		#s = line.strip().split(',')#先去掉換行符號、再用逗號分割
+		#name = s[0]
+		#price = s[1]
+		#print(s)
+		name, price = line.strip().split(',')
+		products.append([name,price])
+print(products)
+
 while True:
 	name = input('請輸入商品名稱: ')
 	if name == 'q':
